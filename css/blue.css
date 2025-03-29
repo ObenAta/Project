@@ -1,0 +1,163 @@
+/* css/blue.css */
+
+/* Import a different font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap');
+
+/* Ensure full height for sticky footer */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Make body a flex container in a column layout */
+body {
+    font-family: "Montserrat", sans-serif;
+    /* changed font */
+    background-color: #ebf5fc;
+    /* light bluish background */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main will grow to fill available space */
+main {
+    flex: 1;
+}
+
+/* Header with a bluish gradient background */
+header {
+    background: linear-gradient(135deg, #4a90e2, #357ab7);
+    color: #fff;
+    padding: 20px;
+}
+
+/* Container to center and space header elements */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Logo section */
+.logo {
+    margin-bottom: 10px;
+}
+
+/* Store heading styling: larger, bolder font */
+.store-heading {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Navigation styles */
+nav {
+    width: 100%;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* spacing between links */
+}
+
+.nav-list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+/* Hover effect for nav links (lighter blue) */
+.nav-list a:hover {
+    color: #cceeff;
+    border-bottom: 2px solid #cceeff;
+}
+
+/* Footer styling: deeper blue background */
+footer {
+    background-color: #003366;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Product list container */
+main .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    /* space between product boxes */
+    padding: 20px;
+    align-items: stretch;
+}
+
+/* Product item box */
+main .product-list .product-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 220px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Responsive images */
+main .product-list .product-item img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+/* Headings for products */
+main .product-list .product-item h3 {
+    margin: 0 0 10px;
+}
+
+/* Paragraphs in products */
+main .product-list .product-item p {
+    margin: 0 0 10px;
+}
+
+/* Product link styling */
+main .product-list .product-item a {
+    margin-top: auto;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #0066cc;
+    /* bluish border */
+    border-radius: 4px;
+    color: #0066cc;
+    /* text color */
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover effect for the product link */
+main .product-list .product-item a:hover {
+    background-color: #0066cc;
+    color: #fff;
+}
+
+main h2 {
+    text-align: center;
+    margin-top: 20px;
+}

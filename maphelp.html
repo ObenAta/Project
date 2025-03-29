@@ -1,0 +1,90 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Map Help</title>
+    <style>
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .help-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .help-container h1 {
+            margin-top: 0;
+        }
+
+        .help-container p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .back-to-map-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .back-to-map-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="help-container">
+        <h1>How to Use the Regional In-Store Pick Up Availability Map</h1>
+        <p>
+            The Regional In-Store Pick Up Availability Map (Canada) lets you quickly check if an item is
+            available for local pick up in various provinces and territories. Simply hover or click on a region
+            in the map image, and an availability message will appear. If pick up is offered in that area,
+            the region will show as <strong>Available</strong>. If not, it’ll show as <strong>Unavailable</strong>.
+        </p>
+        <p>
+            Each region’s availability is updated dynamically on the page, ensuring you have the most
+            current information. For example, you may see messages such as:
+        </p>
+        <ul>
+            <li><em>Ontario: In-store pick up available in Ottawa.</em></li>
+            <li><em>Nunavut: In-store pick up not available.</em></li>
+        </ul>
+        <p>
+            These messages help you determine whether to visit a particular location or explore shipping
+            options instead.
+        </p>
+        <p>
+            You can always return to the main map page for a larger view or to select a different region.
+            If you have questions or need further assistance, please contact our customer support.
+        </p>
+
+        <!-- Center the button by placing it in a container with text-align:center -->
+        <div style="text-align:center;">
+            <a class="back-to-map-link" href="map.php">
+                Return to the Regional Map
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

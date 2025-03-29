@@ -1,0 +1,100 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Contact Help</title>
+    <style>
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .help-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .help-container h1 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .help-container p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .help-container ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .back-to-contact-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .back-to-contact-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="help-container">
+        <h1>How to Use the Contact Us Form</h1>
+        <p>
+            Our <strong>Contact Us</strong> page provides a quick and easy way for logged-in members
+            to ask any question or share feedback. Simply enter a <strong>Subject</strong> and your
+            question in the text area. Once you submit, our support team will review it and get back
+            to you as soon as possible.
+        </p>
+        <p>
+            Please ensure you’ve included enough details for us to understand your question or issue.
+            If you have multiple questions, feel free to submit them separately or provide them together
+            in a clear, structured format. You may notice a confirmation message after submission,
+            letting you know that your question was sent successfully.
+        </p>
+        <p>
+            Key steps:
+        </p>
+        <ul>
+            <li>Log in as a member (only members can submit questions).</li>
+            <li>Enter a concise yet descriptive <strong>Subject</strong>.</li>
+            <li>Type your question or comment in the <strong>Textarea</strong>.</li>
+            <li>Click <em>Submit Question</em> to send.</li>
+        </ul>
+        <p>
+            You’ll be notified here if your question was received successfully, or if there was an issue
+            with your submission. Typically, we’ll respond within 1-2 business days via the contact details
+            you provided at registration.
+        </p>
+
+        <!-- Center the button by placing it in a container with text-align:center -->
+        <div style="text-align:center;">
+            <a class="back-to-contact-link" href="contact.php">
+                Return to Contact Us
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

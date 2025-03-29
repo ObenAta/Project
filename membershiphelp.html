@@ -1,0 +1,97 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Membership Help</title>
+    <style>
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .help-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .help-container h1 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .help-container p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .help-container ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .help-container ul li {
+            margin-bottom: 10px;
+        }
+
+        .back-to-membership-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .back-to-membership-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="help-container">
+        <h1>How to Use Your Membership Page</h1>
+        <p>
+            The <strong>My Account (Membership) Page</strong> provides an overview of your login status, special
+            membership features, and account management tools. If you’re not signed in, you can enter your username and
+            password to access member-exclusive benefits such as:
+        </p>
+        <ul>
+            <li><strong>Discover the New 5080 Series:</strong> Watch exclusive product launch videos.</li>
+            <li><strong>Customize Your GPU Quote:</strong> Tailor your GPU purchase with optional add-ons and receive a
+                personalized quote via email.</li>
+            <li><strong>Get Your Financing Quote:</strong> Calculate flexible financing options for your GPU purchase
+                and receive an instant financing estimate via email.</li>
+            <li><strong>RMA Requests:</strong> Quickly submit issues or returns for your recent orders.</li>
+        </ul>
+        <p>
+            Once you’re logged in, you’ll see a <strong>Logout</strong> button at the top, along with additional content
+            available exclusively to members. If you haven’t created an account yet, you can do so by clicking the
+            <strong>Create an Account</strong> link on the Membership page.
+        </p>
+        <p>
+            If you ever forget your password or encounter login problems, please reach out to our support team for
+            assistance.
+        </p>
+        <!-- Center the button to return to membership page -->
+        <div style="text-align:center;">
+            <a class="back-to-membership-link" href="membership.php">
+                Return to My Account
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

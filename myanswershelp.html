@@ -1,0 +1,103 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>My Answers Help</title>
+    <style>
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .help-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .help-container h1 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .help-container p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .help-container ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .back-to-answers-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .back-to-answers-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="help-container">
+        <h1>How to View Your RMA Tickets &amp; Q&amp;A</h1>
+        <p>
+            On your <strong>My RMA Tickets &amp; Q&amp;A</strong> page, you can see all of your Return Merchandise
+            Authorization (RMA) requests alongside any questions you’ve asked through our Q&amp;A system.
+            This page is only accessible once you’ve logged in as a member.
+        </p>
+        <p>
+            The page is divided into two main sections:
+        </p>
+        <ul>
+            <li>
+                <strong>My RMA Tickets</strong> – Displays each of your RMA requests, including ticket ID,
+                order item IDs, issue type, a brief description, any attached documentation,
+                and whether the admin has responded yet.
+            </li>
+            <li>
+                <strong>My Questions &amp; Answers</strong> – Shows all your submitted questions, the date
+                each question was asked, and whether it has been answered by our support team.
+                If answered, the response will be displayed underneath your original question.
+            </li>
+        </ul>
+        <p>
+            If you notice that an RMA or question has not been answered yet, please allow our team some time
+            to review your request. You’ll see an “Awaiting admin response” or “Your question is being reviewed”
+            status until we address it.
+        </p>
+        <p>
+            For further help regarding your account or our services, feel free to contact our support team.
+        </p>
+
+        <!-- Center the button by placing it in a container with text-align:center -->
+        <div style="text-align:center;">
+            <!-- Link back to the page where the RMA tickets and Q&A are displayed -->
+            <a class="back-to-answers-link" href="myanswers.php">
+                Return to My RMA Tickets &amp; Q&amp;A
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

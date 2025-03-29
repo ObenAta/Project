@@ -1,0 +1,104 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Order History Help</title>
+    <style>
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .help-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .help-container h1 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .help-container p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .help-container ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        /* Centered “Return to Order History” button */
+        .back-to-order-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .back-to-order-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="help-container">
+        <h1>How to View Your Order History</h1>
+        <p>
+            On your <strong>Order History</strong> page, you can track all orders associated
+            with your account. This page is available only once you’re logged in. If you haven’t placed
+            any orders yet, you’ll see a simple message indicating there are no orders on record.
+        </p>
+        <p>
+            Each entry provides:
+        </p>
+        <ul>
+            <li><strong>Product Name</strong> – The item(s) you purchased.</li>
+            <li><strong>Order Date &amp; Time</strong> – When you placed the order.</li>
+            <li><strong>Order Status</strong> – Displays whether your product is Pending or Delivered,
+                based on the expected delivery date.</li>
+            <li><strong>Expected Delivery Date</strong> – An estimate based on the order date
+                plus the number of days needed for shipping.</li>
+            <li><strong>Review</strong> – A link to leave feedback or a review once an order is placed.</li>
+        </ul>
+        <p>
+            Use these details to keep track of where your purchases stand in the delivery process.
+            If the expected delivery date has passed, the system automatically flags it as “Delivered.”
+        </p>
+        <p>
+            To leave a review, click the “Leave Review” button, which takes you to our reviews page,
+            pre-filled with your order details.
+        </p>
+        <p>
+            If you have any questions or concerns about a specific order,
+            please contact our support team for further assistance.
+        </p>
+
+        <!-- Center the button linking back to order_history.php -->
+        <div style="text-align:center;">
+            <a class="back-to-order-link" href="order_history.php">
+                Return to Your Order History
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

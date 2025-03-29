@@ -1,0 +1,167 @@
+/* Ensure full height for sticky footer */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Make body a flex container in a column layout */
+body {
+    font-family: "Roboto Condensed", serif;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main will grow to fill available space */
+main {
+    flex: 1;
+}
+
+/* Import the Roboto Condensed font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Header with gradient background for added depth */
+header {
+    background: linear-gradient(135deg, #444, #333);
+    /* Added the exact rule you requested */
+    padding: 10px 20px;
+    color: #fff;
+}
+
+/* Container to center and space header elements */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Logo section */
+.logo {
+    margin-bottom: 10px;
+}
+
+/* Store heading styling: larger, bolder font */
+.store-heading {
+    font-size: 2.5em;
+    /* Increase as needed */
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Navigation styles */
+nav {
+    width: 100%;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Increased spacing between links */
+}
+
+.nav-list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+/* Hover and active effects for links */
+.nav-list a:hover {
+    color: #ffd700;
+    /* Gold color on hover */
+    border-bottom: 2px solid #ffd700;
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Center and space the product list */
+main .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Center items horizontally */
+    gap: 20px;
+    /* Space between product boxes */
+    padding: 20px;
+    align-items: stretch;
+    /* Make all items in a row the same height */
+}
+
+/* Turn each product box into a flex container */
+main .product-list .product-item {
+    display: flex;
+    flex-direction: column;
+    /* Stack image, name, price, link vertically */
+    justify-content: flex-start;
+    width: 220px;
+    /* Fixed width for consistent alignment */
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Make images scale proportionally without distortion */
+main .product-list .product-item img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 10px;
+    /* Center horizontally + space below */
+    display: block;
+}
+
+/* Title margin */
+main .product-list .product-item h3 {
+    margin: 0 0 10px;
+}
+
+/* Price margin */
+main .product-list .product-item p {
+    margin: 0 0 10px;
+}
+
+/* Keep the link at the bottom if there's extra space */
+main .product-list .product-item a {
+    margin-top: auto;
+    /* Pushes the link to the bottom */
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    color: #007bff;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover effect for the link */
+main .product-list .product-item a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+main h2 {
+    text-align: center;
+    margin-top: 20px;
+    /* optional, adds some space above the heading */
+}

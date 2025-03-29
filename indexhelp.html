@@ -1,0 +1,96 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Index Help</title>
+    <style>
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .help-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .help-container h1 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .help-container p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .back-to-index-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .back-to-index-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="help-container">
+        <h1>How to Use the Homepage</h1>
+        <p>
+            The homepage (<code>index.php</code>) displays general site information, along with
+            a popup message that appears the moment you arrive on the page. This popup
+            provides an overview of key features and functionalities offered by our
+            e‑commerce application. Click <strong>I read and understand</strong> to close it.
+        </p>
+        <p>
+            The main content area lists products pulled from the database, ensuring you
+            have a quick view of what’s available. You can also navigate to various site
+            features (including membership details, order history, RMA requests, and more)
+            by using the header links.
+        </p>
+
+        <p>
+            <strong>Updating Images &amp; Videos:</strong><br>
+      In order to update images and videos used sitewide, two folders are used:
+            <code>images</code> and <code>videos</code>. For videos, you can manually drag and
+            drop a video file from your computer’s downloads folder into the <code>videos</code> folder.
+            For images, they are automatically added to the website when you add a product.
+            To add or edit a product, you must be in the admin portal, where you will be asked
+            to attach an image.
+        </p>
+        <p>
+            If you have any additional questions about using the homepage or updating site
+            content, feel free to contact our support team or visit our other help pages
+            for more detailed instructions.
+        </p>
+
+        <!-- Center the button linking back to index.php -->
+        <div style="text-align:center;">
+            <a class="back-to-index-link" href="index.php">
+                Return to Home Page
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>
