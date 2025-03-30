@@ -37,9 +37,19 @@ foreach ($services as $name => $url) {
 <head>
   <meta charset="UTF-8">
   <title>Website Monitoring</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* Ensure full viewport height and flex layout */
+    /* Global styles to ensure the page container fills the viewport */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
     .page-container {
         display: flex;
         flex-direction: column;
@@ -80,6 +90,14 @@ foreach ($services as $name => $url) {
     .offline {
         color: red;
         font-weight: bold;
+    }
+    /* Ensure the footer is always at the bottom */
+    footer {
+        margin-top: auto;
+        background-color: #003366;
+        color: #fff;
+        padding: 15px;
+        text-align: center;
     }
   </style>
 </head>

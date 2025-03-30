@@ -10,7 +10,7 @@ require_once '../includes/config.php';
 
 $update_message = "";
 
-// If a form is submitted for a specific product (via ?id=...), process the update.
+// Process update for a specific product if form is submitted (via ?id=...)
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['id']) && is_numeric($_GET['id'])) {
     $productId = intval($_GET['id']);
     $name = trim($_POST['name']);
@@ -83,6 +83,10 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
             color: green;
             font-size: 1.1rem;
         }
+        /* Wrap table in a container for horizontal scrolling */
+        .table-wrapper {
+            overflow-x: auto;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -101,6 +105,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         .product-img {
             max-height: 80px;
+            width: auto;
         }
         .edit-input {
             width: 100%;
@@ -129,6 +134,19 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         .action-btn:hover {
             opacity: 0.9;
         }
+        /* Responsive adjustments for mobile */
+        @media (max-width: 768px) {
+            .admin-edit-container {
+                padding: 10px 15px;
+            }
+            table, th, td {
+                font-size: 0.9rem;
+                padding: 5px;
+            }
+            .edit-input {
+                padding: 5px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -139,56 +157,57 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php if (!empty($update_message)): ?>
                 <p class="update-message"><?php echo htmlspecialchars($update_message); ?></p>
             <?php endif; ?>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product ID</th>
-                        <th>Photo</th>
-                        <th>Current Name</th>
-                        <th>Current Description</th>
-                        <th>Current Price</th>
-                        <th>Stock</th>
-                        <th>New Name</th>
-                        <th>New Description</th>
-                        <th>New Price</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($products as $product): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($product['id']); ?></td>
-                        <td>
-                            <?php if (!empty($product['image'])): ?>
-                                <img src="../images/<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="product-img">
-                            <?php else: ?>
-                                N/A
-                            <?php endif; ?>
-                        </td>
-                        <td><?php echo htmlspecialchars($product['name']); ?></td>
-                        <td><?php echo nl2br(htmlspecialchars($product['description'])); ?></td>
-                        <td>$<?php echo number_format($product['price'], 2); ?></td>
-                        <td><?php echo htmlspecialchars($product['quantity']); ?></td>
-                        <!-- Each row's form submits to the same file with the product id in the query string -->
-                        <form action="admin_edit_product_form.php?id=<?php echo intval($product['id']); ?>" method="post" enctype="multipart/form-data">
-                        <td>
-                            <input type="text" name="name" class="edit-input" value="<?php echo htmlspecialchars($product['name']); ?>">
-                        </td>
-                        <td>
-                            <textarea name="description" class="edit-input"><?php echo htmlspecialchars($product['description']); ?></textarea>
-                        </td>
-                        <td>
-                            <input type="number" step="0.01" name="price" class="edit-input" value="<?php echo htmlspecialchars($product['price']); ?>">
-                        </td>
-                        <td>
-                            <button type="submit" class="action-btn update-btn">Update</button>
-                            <a href="remove_product.php?id=<?php echo intval($product['id']); ?>" class="action-btn remove-btn" onclick="return confirm('Are you sure you want to remove this product?');">Remove</a>
-                        </td>
-                        </form>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Photo</th>
+                            <th>Current Name</th>
+                            <th>Current Description</th>
+                            <th>Current Price</th>
+                            <th>Stock</th>
+                            <th>New Name</th>
+                            <th>New Description</th>
+                            <th>New Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($products as $product): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($product['id']); ?></td>
+                            <td>
+                                <?php if (!empty($product['image'])): ?>
+                                    <img src="../images/<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="product-img">
+                                <?php else: ?>
+                                    N/A
+                                <?php endif; ?>
+                            </td>
+                            <td><?php echo htmlspecialchars($product['name']); ?></td>
+                            <td><?php echo nl2br(htmlspecialchars($product['description'])); ?></td>
+                            <td>$<?php echo number_format($product['price'], 2); ?></td>
+                            <td><?php echo htmlspecialchars($product['quantity']); ?></td>
+                            <form action="admin_edit_product_form.php?id=<?php echo intval($product['id']); ?>" method="post" enctype="multipart/form-data">
+                            <td>
+                                <input type="text" name="name" class="edit-input" value="<?php echo htmlspecialchars($product['name']); ?>">
+                            </td>
+                            <td>
+                                <textarea name="description" class="edit-input"><?php echo htmlspecialchars($product['description']); ?></textarea>
+                            </td>
+                            <td>
+                                <input type="number" step="0.01" name="price" class="edit-input" value="<?php echo htmlspecialchars($product['price']); ?>">
+                            </td>
+                            <td>
+                                <button type="submit" class="action-btn update-btn">Update</button>
+                                <a href="remove_product.php?id=<?php echo intval($product['id']); ?>" class="action-btn remove-btn" onclick="return confirm('Are you sure you want to remove this product?');">Remove</a>
+                            </td>
+                            </form>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </main>
     <?php include '../templates/footer.php'; ?>

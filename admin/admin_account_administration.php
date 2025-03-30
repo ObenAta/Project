@@ -52,6 +52,7 @@ foreach ($allHistory as $log) {
 <head>
     <meta charset="UTF-8">
     <title>Admin - Account Administration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <style>
         html, body {
@@ -59,7 +60,7 @@ foreach ($allHistory as $log) {
             margin: 0;
             padding: 0;
         }
-        /* Wrapper to force footer to the bottom */
+        /* Wrapper to force footer at the bottom */
         .page-container {
             display: flex;
             flex-direction: column;
@@ -74,6 +75,10 @@ foreach ($allHistory as $log) {
             font-family: 'Roboto Condensed', serif;
             color: #333;
             text-align: center;
+        }
+        /* Wrap table in a scrollable container for mobile */
+        .table-wrapper {
+            overflow-x: auto;
         }
         table {
             border-collapse: collapse;
@@ -111,12 +116,20 @@ foreach ($allHistory as $log) {
         .toggle-history-button:hover {
             opacity: 0.9;
         }
-        /* Footer styling */
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 480px) {
+            th, td {
+                font-size: 0.8rem;
+                padding: 5px;
+            }
+        }
+        /* Footer styling (ensure it stays at bottom) */
         footer {
             background-color: #333;
             color: #fff;
             text-align: center;
             padding: 15px;
+            margin-top: auto;
         }
     </style>
     <script>
@@ -140,66 +153,68 @@ foreach ($allHistory as $log) {
         <main>
             <h1>Account Administration</h1>
             <!-- Members List -->
-            <table class="members-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php if (!empty($members)) : ?>
-                    <?php foreach ($members as $row): ?>
+            <div class="table-wrapper">
+                <table class="members-table">
+                    <thead>
                         <tr>
-                            <td><?php echo htmlspecialchars($row['id']); ?></td>
-                            <td><?php echo htmlspecialchars($row['username']); ?></td>
-                            <td><?php echo htmlspecialchars($row['email']); ?></td>
-                            <td><?php echo ($row['status'] === 'enabled') ? "Enabled" : "Disabled"; ?></td>
-                            <td>
-                                <?php if ($row['status'] === 'enabled'): ?>
-                                    <button type="button" class="action-button disable-button" onclick="if(confirm('Disable this account?')) { window.location.href='?action=disable&user_id=<?php echo $row['id']; ?>'; }">Disable</button>
-                                <?php else: ?>
-                                    <button type="button" class="action-button enable-button" onclick="if(confirm('Enable this account?')) { window.location.href='?action=enable&user_id=<?php echo $row['id']; ?>'; }">Enable</button>
-                                <?php endif; ?>
-                                <button type="button" class="action-button toggle-history-button" id="toggle-<?php echo $row['id']; ?>" onclick="toggleHistory(<?php echo $row['id']; ?>)">Show History</button>
-                            </td>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
                         </tr>
-                        <!-- Hidden row for login/logout history for this member -->
-                        <tr id="history-<?php echo $row['id']; ?>" style="display:none;">
-                            <td colspan="5">
-                                <?php if (isset($historyByMember[$row['id']])): ?>
-                                    <table class="history-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Event Time</th>
-                                                <th>Event Type</th>
-                                                <th>IP Address</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($historyByMember[$row['id']] as $log): ?>
+                    </thead>
+                    <tbody>
+                    <?php if (!empty($members)) : ?>
+                        <?php foreach ($members as $row): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($row['id']); ?></td>
+                                <td><?php echo htmlspecialchars($row['username']); ?></td>
+                                <td><?php echo htmlspecialchars($row['email']); ?></td>
+                                <td><?php echo ($row['status'] === 'enabled') ? "Enabled" : "Disabled"; ?></td>
+                                <td>
+                                    <?php if ($row['status'] === 'enabled'): ?>
+                                        <button type="button" class="action-button disable-button" onclick="if(confirm('Disable this account?')) { window.location.href='?action=disable&user_id=<?php echo $row['id']; ?>'; }">Disable</button>
+                                    <?php else: ?>
+                                        <button type="button" class="action-button enable-button" onclick="if(confirm('Enable this account?')) { window.location.href='?action=enable&user_id=<?php echo $row['id']; ?>'; }">Enable</button>
+                                    <?php endif; ?>
+                                    <button type="button" class="action-button toggle-history-button" id="toggle-<?php echo $row['id']; ?>" onclick="toggleHistory(<?php echo $row['id']; ?>)">Show History</button>
+                                </td>
+                            </tr>
+                            <!-- Hidden row for login/logout history for this member -->
+                            <tr id="history-<?php echo $row['id']; ?>" style="display:none;">
+                                <td colspan="5">
+                                    <?php if (isset($historyByMember[$row['id']])): ?>
+                                        <table class="history-table">
+                                            <thead>
                                                 <tr>
-                                                    <td><?php echo htmlspecialchars($log['event_time']); ?></td>
-                                                    <td><?php echo htmlspecialchars($log['event_type']); ?></td>
-                                                    <td><?php echo htmlspecialchars($log['ip_address'] ?? ''); ?></td>
+                                                    <th>Event Time</th>
+                                                    <th>Event Type</th>
+                                                    <th>IP Address</th>
                                                 </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                <?php else: ?>
-                                    <p>No login history found for this user.</p>
-                                <?php endif; ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <tr><td colspan="5">No members found.</td></tr>
-                <?php endif; ?>
-                </tbody>
-            </table>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($historyByMember[$row['id']] as $log): ?>
+                                                    <tr>
+                                                        <td><?php echo htmlspecialchars($log['event_time']); ?></td>
+                                                        <td><?php echo htmlspecialchars($log['event_type']); ?></td>
+                                                        <td><?php echo htmlspecialchars($log['ip_address'] ?? ''); ?></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    <?php else: ?>
+                                        <p>No login history found for this user.</p>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr><td colspan="5">No members found.</td></tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
         </main>
         <?php include '../templates/footer.php'; ?>
     </div>
