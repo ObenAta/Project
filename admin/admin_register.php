@@ -27,8 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Insert new admin record
     $stmt = $pdo->prepare("INSERT INTO admins (username, password) VALUES (?, ?)");
     if($stmt->execute([$username, $hashedPassword])){
-        $_SESSION['reg_success'] = "Admin registered successfully.";
-        header("Location: admin_register_form.php");
+        // Instead of header redirect, output JavaScript alert and then redirect
+        echo "<script>
+                alert('Admin registered successfully.');
+                window.location.href = 'admin_login_form.php';
+              </script>";
         exit;
     } else {
         $_SESSION['reg_error'] = "Error registering admin. Please try again.";
@@ -40,3 +43,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit;
 }
 ?>
+

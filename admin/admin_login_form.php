@@ -57,6 +57,19 @@ session_start();
     .login-container form button:hover {
       background-color: #0056b3;
     }
+    /* Style for the registration link */
+    .register-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.95rem;
+    }
+    .register-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .register-link a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -75,7 +88,9 @@ session_start();
       <input type="password" name="password" id="password" required>
       <button type="submit">Login</button>
     </form>
+    <div class="register-link">
+      Not registered as Admin yet? <a href="admin_register_form.php">Click here</a>
+    </div>
   </div>
 </body>
 </html>
-
