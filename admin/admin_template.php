@@ -21,16 +21,22 @@ if (isset($_GET['template'])) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Template Switcher</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    /* Ensure full viewport height and flex layout */
+    /* Prevent horizontal overflow on all devices */
     html, body {
+      overflow-x: hidden;
+      box-sizing: border-box;
       height: 100%;
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
       background-color: #f9f9f9;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
     }
     .page-container {
       display: flex;
@@ -54,8 +60,10 @@ if (isset($_GET['template'])) {
     }
     .template-buttons {
       display: inline-flex;
+      flex-wrap: wrap;
       gap: 15px;
       margin-top: 20px;
+      justify-content: center;
     }
     .template-buttons a {
       padding: 10px 20px;
@@ -63,6 +71,7 @@ if (isset($_GET['template'])) {
       text-decoration: none;
       border-radius: 4px;
       transition: background-color 0.3s ease;
+      margin: 5px;
     }
     .template-default {
       background-color: #333;
@@ -107,3 +116,4 @@ if (isset($_GET['template'])) {
   </div>
 </body>
 </html>
+

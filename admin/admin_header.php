@@ -11,6 +11,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GPU Paradise Admin Panel</title>
   <!-- Google Fonts Integration -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,6 +73,25 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
       text-decoration: none;
       font-size: 1rem;
       margin-left: 20px;
+    }
+    /* Responsive adjustments for mobile */
+    @media (max-width: 768px) {
+      .admin-header {
+        grid-template-columns: auto auto;
+        gap: 10px;
+      }
+      nav {
+        grid-column: 2 / -1;
+      }
+      .admin-nav-list {
+        flex-direction: column;
+      }
+      .admin-nav-list li {
+        margin: 5px 0;
+      }
+      .admin-menu-controls {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -144,4 +164,3 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
   </header>
 </body>
 </html>
-
